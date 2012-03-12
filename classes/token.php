@@ -1,6 +1,7 @@
 <?php
 class Token{
 	public static function authen($token){
+		
 		$api_auth_url = Kohana::$config->load('token.api_auth_url');
 
 		$request = Request::factory($api_auth_url);
@@ -9,7 +10,7 @@ class Token{
 
 		$response = $request->execute();
 
-		if($response->status(200)) return true;
+		if($response->status() == 200) return true;
 
 		return false;
 	}
